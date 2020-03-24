@@ -22,8 +22,6 @@ class SignIn extends Component {
     } catch (error) {
       console.error(error);
     }
-
-    this.setState({ email: "", password: "" });
   };
 
   handleChange = e => {
@@ -43,6 +41,7 @@ class SignIn extends Component {
             type="email"
             value={this.state.email}
             handleChange={this.handleChange}
+            autoComplete="username"
             label="Email"
           />
 
@@ -51,12 +50,17 @@ class SignIn extends Component {
             type="password"
             value={this.state.password}
             handleChange={this.handleChange}
+            autoComplete="current-password"
             label="Password"
           />
           <div className="buttons">
             <CustomButton type="submit"> Sign In </CustomButton>
-            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
-              Sign In with Google
+            <CustomButton
+              type="button"
+              onClick={signInWithGoogle}
+              isGoogleSignIn
+            >
+              Sign in with Google
             </CustomButton>
           </div>
         </form>

@@ -9,6 +9,10 @@
   margin: 0 7.5px 15px;
   overflow: hidden;
 
+  .background-image {
+    transition: all 1s;
+  }
+
   &:hover {
     cursor: pointer;
 
