@@ -4,33 +4,33 @@ const INITIAL_STATE = {
       title: "hats",
       imageUrl: "https://bit.ly/3akbQ0I",
       id: 1,
-      linkUrl: "hats"
+      linkUrl: "shop/hats"
     },
     {
       title: "jackets",
       imageUrl: "https://bit.ly/2wimNS2",
       id: 2,
-      linkUrl: ""
+      linkUrl: "shop/jackets"
     },
     {
       title: "sneakers",
       imageUrl: "https://bit.ly/2vDAavH",
       id: 3,
-      linkUrl: ""
+      linkUrl: "shop/sneakers"
     },
     {
       title: "women",
       imageUrl: "https://bit.ly/2xY1yoX",
       size: "large",
       id: 4,
-      linkUrl: ""
+      linkUrl: "shop/women"
     },
     {
       title: "men",
       imageUrl: "https://bit.ly/3943j0N",
       size: "large",
       id: 5,
-      linkUrl: ""
+      linkUrl: "shop/men"
     }
   ]
 };
