@@ -2,12 +2,13 @@ import styled from "styled-components";
 import CustomButton from "../Custom-button/Custom-button.component";
 
 export const CollectionItemContainer = styled.div`
-  width: 22vw;
   display: flex;
-  flex-direction: column;
-  height: 350px;
   align-items: center;
+  flex-direction: column;
+  width: 22vw;
+  height: 350px;
   position: relative;
+  margin-buttom: 20px
   &:hover {
     .image {
       opacity: 0.8;
