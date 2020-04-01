@@ -1,4 +1,4 @@
-import ShopActionTypes from "./Shop.types";
+import ShopActionTypes from "./shop.types";
 
 import {
   firestore,

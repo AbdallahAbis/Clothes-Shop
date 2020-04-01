@@ -1,8 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import FormInput from "../Form-input/Form-input.component";
 import CustomButton from "../Custom-button/Custom-button.component";
-import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
+
+import { emailSingInStart } from "../../redux/user/user.actions";
+
+import { googleSingInStart } from "../../redux/user/user.actions";
 
 import {
   SignInContainer,
@@ -22,15 +26,10 @@ class SignIn extends React.Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-
+    const { emailSingInStart } = this.props;
     const { email, password } = this.state;
 
-    try {
-      await auth.signInWithEmailAndPassword(email, password);
-      this.setState({ email: "", password: "" });
-    } catch (error) {
-      console.log(error);
-    }
+    emailSingInStart(email, password);
   };
 
   handleChange = event => {
@@ -40,6 +39,7 @@ class SignIn extends React.Component {
   };
 
   render() {
+    const { googleSingInStart } = this.props;
     return (
       <SignInContainer>
         <SignInTitle>I already have an account</SignInTitle>
@@ -52,6 +52,7 @@ class SignIn extends React.Component {
             handleChange={this.handleChange}
             value={this.state.email}
             label="email"
+            autoComplete="username"
             required
           />
           <FormInput
@@ -60,11 +61,16 @@ class SignIn extends React.Component {
             value={this.state.password}
             handleChange={this.handleChange}
             label="password"
+            autoComplete="new-password"
             required
           />
           <ButtonsBarContainer>
             <CustomButton type="submit"> Sign in </CustomButton>
-            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+            <CustomButton
+              type="button"
+              onClick={googleSingInStart}
+              isGoogleSignIn
+            >
               Sign in with Google
             </CustomButton>
           </ButtonsBarContainer>
@@ -74,4 +80,10 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+const mapDispatchToProps = dispatch => ({
+  googleSingInStart: () => dispatch(googleSingInStart()),
+  emailSingInStart: (email, password) =>
+    dispatch(emailSingInStart({ email, password }))
+});
+
+export default connect(null, mapDispatchToProps)(SignIn);
