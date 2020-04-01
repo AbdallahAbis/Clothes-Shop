@@ -11,7 +11,8 @@ export const CollectionPageTitle = styled.h2`
 export const CollectionPageItemsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 40px;
+  grid-row-gap: 40px;
+  grid-column-gap: 20px;
 `;
 export const CollectionItemContainer = styled.div`
   margin-bottom: 30px;
