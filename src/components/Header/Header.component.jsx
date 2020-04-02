@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { singOutStart } from "../../redux/user/user.actions";
+import { signOutStart } from "../../redux/user/user.actions";
 
 import CartIcon from "../Cart-icon/Cart-icon.component";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
@@ -17,7 +17,7 @@ import {
   OptionLink
 } from "./Header.styles";
 
-const Header = ({ currentUser, hidden, singOutStart }) => (
+const Header = ({ currentUser, hidden, signOutStart }) => (
   <HeaderContainer>
     <LogoContainer to="/">
       <Logo className="logo" />
@@ -26,7 +26,7 @@ const Header = ({ currentUser, hidden, singOutStart }) => (
       <OptionLink to="/shop">SHOP</OptionLink>
       <OptionLink to="/contact">CONTACT</OptionLink>
       {currentUser ? (
-        <OptionLink as="div" onClick={singOutStart}>
+        <OptionLink as="div" onClick={signOutStart}>
           SIGN OUT
         </OptionLink>
       ) : (
@@ -44,7 +44,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  singOutStart: () => dispatch(singOutStart())
+  signOutStart: () => dispatch(signOutStart())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
